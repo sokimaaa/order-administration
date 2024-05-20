@@ -23,9 +23,8 @@ The key functionality:
 
 - Java 17
 - Spring Boot 3
-- Project Reactor
 - Apache Kafka
-- R2DBC
+- Spring Data Jpa
 - Postgres
 - Testcontainers
 - Maven

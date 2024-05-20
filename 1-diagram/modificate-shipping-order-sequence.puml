@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor "External Service" as ES
+participant "Order Administration" as OA
+database "Write Model" as WM
+database "Read Model" as RM
+queue "Event Storage" as ESG
+
+ES -> OA: ShippingOrderModificationCommand\n1: RequestId\n2: OrderId\n3: Shipping Address
+OA -> OA: transform to Java Domain
+OA -> RM: get order by OrderId
+OA -> OA: check order status in allowed for modification
+OA -> OA: change shipping address
+OA -> WM: update order
+OA -> OA: transform to Avro
+OA -> ESG: ShippingOrderModifiedEvent\n1: RequestId\n2: OrderId\n3: ShippingAddress
+
+@enduml

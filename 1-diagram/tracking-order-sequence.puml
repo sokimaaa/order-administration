@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor "Client" as C
+participant "Order Administration" as OA
+database "Read Model" as RM
+queue "Event Storage" as ESG
+
+C -> OA: TrackingOrderQuery\n1: OrderId
+OA -> OA: transform to Java Domain
+OA -> RM: get order by OrderId
+OA -> OA: transform to Avro Domain
+OA -> ESG: TrackedOrderEvent
+
+@enduml

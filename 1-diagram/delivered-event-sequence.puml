@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+queue "Event Storage" as ESG
+participant "Order Administration" as OA
+database "Write Model" as WM
+database "Read Model" as RM
+
+ESG -> OA: OrderDeliveredEvent\n1: RequestId\n2: OrderId
+OA -> OA: transform to Java Domain
+OA -> RM: get order by OrderId
+OA -> OA: change status to "IN PROGRESS"
+OA -> OA: change sub status to "DELIVERED"
+OA -> WM: update order
+OA -> OA: transform to Avro
+OA -> ESG: OrderInProgressEvent\n1: RequestId\n2: OrderId\n3: sub status
+
+@enduml

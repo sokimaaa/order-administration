@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor "External Service" as ES
+participant "Order Administration" as OA
+database "Write Model" as WM
+database "Read Model" as RM
+queue "Event Storage" as ESG
+
+ES -> OA: PaymentOrderModificationCommand\n1: RequestId\n2: OrderId\n3: PaymentMethod
+OA -> OA: transform to Java Domain
+OA -> RM: get order by OrderId
+OA -> OA: check order status in allowed for modification
+OA -> OA: change payment method
+OA -> WM: update order
+OA -> OA: transform to Avro
+OA -> ESG: PaymentOrderModifiedEvent\n1: RequestId\n2: OrderId\n3: PaymentMethod
+
+@enduml

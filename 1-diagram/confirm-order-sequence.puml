@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor Client as C
+participant "Order Administration" as OA
+database "Write Model" as WM
+database "Read Model" as RM
+queue "Event Storage" as ESG
+
+C -> OA: ConfirmOrderCommand\n1: RequestId\n2*: OrderId\n2*: AccountId + DayOfWeek + ProductIds
+OA -> OA: transform to Java Domain
+
+OA -> WM: read Existing Order by OrderId
+OA -> OA: change status to "CONFIRMED"
+OA -> RM: update order with proper status
+
+OA -> OA: transform to Avro Event
+OA -> ESG: OrderConfirmedEvent\n1: RequestId\n2: OrderId\n3: Shipping Address\n4: Shipping Profile\n5: PaymentMethod\n6: Amount\n7: AccountFromId\n8: AccountToId
+
+@enduml
