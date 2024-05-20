@@ -1,1 +1,0 @@
-package com.sokima.order.management.component.test;
