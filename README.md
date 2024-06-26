@@ -35,6 +35,8 @@ The key functionality:
 Hexagonal Architecture
 Command Query Responsibility Segregation (CQRS)
 Master-slave
+REST
+Event Driven
 
 ## ER Diagram
 

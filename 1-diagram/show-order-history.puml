@@ -4,12 +4,11 @@
 actor "Client" as C
 participant "Order Administration" as OA
 database "Read Model" as RM
-queue "Event Storage" as ESG
 
 C -> OA: ShowOrderHistoryQuery\n1: AccountId
 OA -> OA: transform to Java Domain
 OA -> RM: get orders by AccountId
-OA -> OA: transform to Avro
-OA -> ESG: ShownOrderHistoryEvent
+OA -> OA: transform to Json
+OA -> C: ShownOrderHistoryEvent
 
 @enduml
