@@ -1,0 +1,12 @@
+{
+  "namespace": "com.sokima.order.administration.avro.domain",
+  "type": "record",
+  "name": "OrderUpdatedEvent",
+  "doc": "Event on any modification command, e.g. ChangePaymentMethodCommand, ReplaceShippingAddressCommand, UpdateProductCommand.",
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "int"
+    }
+  ]
+}

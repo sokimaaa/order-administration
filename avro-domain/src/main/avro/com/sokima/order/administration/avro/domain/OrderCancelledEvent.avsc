@@ -1,0 +1,12 @@
+{
+  "namespace": "com.sokima.order.administration.avro.domain",
+  "type": "record",
+  "name": "OrderCancelledEvent",
+  "doc": "Event on CancelOrderCommand.",
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "int"
+    }
+  ]
+}

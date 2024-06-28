@@ -1,0 +1,17 @@
+{
+  "namespace": "com.sokima.order.administration.avro.domain",
+  "type": "record",
+  "name": "CancelOrderCommand",
+  "doc": "Triggers cancelling order.",
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "int"
+    },
+    {
+      "name": "reason",
+      "type": ["null", "string"],
+      "default": null
+    }
+  ]
+}

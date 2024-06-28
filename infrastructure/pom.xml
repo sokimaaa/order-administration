@@ -17,5 +17,11 @@
             <artifactId>order-administration-usecase</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.sokima</groupId>
+            <artifactId>order-administration-avro-domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>

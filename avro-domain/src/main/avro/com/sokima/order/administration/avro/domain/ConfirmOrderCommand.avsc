@@ -1,0 +1,12 @@
+{
+  "namespace": "com.sokima.order.administration.avro.domain",
+  "type": "record",
+  "name": "ConfirmOrderCommand",
+  "doc": "Initiates confirmation of the order.",
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "int"
+    }
+  ]
+}

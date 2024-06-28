@@ -1,0 +1,20 @@
+{
+  "namespace": "com.sokima.order.administration.avro.domain",
+  "type": "record",
+  "name": "ChangePaymentMethodCommand",
+  "doc": "Modification command. Changes payment method of the order.",
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "int"
+    },
+    {
+      "name": "payment_method",
+      "type": {
+        "name": "PaymentMethodEnum",
+        "type": "enum",
+        "symbols": ["VISA", "MASTERCARD", "APPLE_PAY", "GOOGLE_PAY"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "namespace": "com.sokima.order.administration.avro.domain",
+  "type": "record",
+  "name": "ReplaceShippingAddressCommand",
+  "doc": "Modification command. Replaces shipping address with a new one.",
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "int"
+    },
+    {
+      "name": "shipping_address",
+      "type": "string"
+    }
+  ]
+}

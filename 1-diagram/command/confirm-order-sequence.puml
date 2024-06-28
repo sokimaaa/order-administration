@@ -7,7 +7,7 @@ database "Write Model" as WM
 database "Read Model" as RM
 queue "Event Storage" as ESG
 
-C -> OA: ConfirmOrderCommand\n1: RequestId\n2*: OrderId\n2*: AccountId + DayOfWeek + ProductIds
+C -> OA: ConfirmOrderCommand\n1: RequestId\n2*: OrderId\n3*: AccountId + DayOfWeek + ProductIds
 OA -> C: Accepted 204
 OA -> OA: transform to Java Domain
 

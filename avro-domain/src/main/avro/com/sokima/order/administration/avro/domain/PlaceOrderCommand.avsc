@@ -1,0 +1,45 @@
+{
+  "namespace": "com.sokima.order.administration.avro.domain",
+  "type": "record",
+  "name": "PlaceOrderCommand",
+  "doc": "Creates the initial order.",
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "int"
+    },
+    {
+      "name": "account_id",
+      "type": "string"
+    },
+    {
+      "name": "products",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "shipping_address",
+      "type": "string"
+    },
+    {
+      "name": "product_profile",
+      "type": ["null", "string"],
+      "doc": "Dimension, size, weight of the order",
+      "default": null
+    },
+    {
+      "name": "amount",
+      "type": "float"
+    },
+    {
+      "name": "payment_method",
+      "type": {
+        "name": "PaymentMethodEnum",
+        "type": "enum",
+        "symbols": ["APPLE_PAY", "GOOGLE_PAY", "CASH"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "namespace": "com.sokima.order.administration.avro.domain",
+  "type": "record",
+  "name": "UpdateProductCommand",
+  "doc": "Modification command. Updates number of products in the order.",
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "int"
+    },
+    {
+      "name": "delta_products",
+      "doc": "In case product exists then delete from order. In case product does not exist then add to order.",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "delta_amount",
+      "type": "float"
+    },
+    {
+      "name": "delta_product_profile",
+      "type": ["null", "string"],
+      "default": null
+    }
+  ]
+}
