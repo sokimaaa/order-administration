@@ -33,9 +33,13 @@ The key functionality:
 ## Architecture Perspective
 
 Hexagonal Architecture
+
 Command Query Responsibility Segregation (CQRS)
+
 Master-slave
+
 REST
+
 Event Driven
 
 ## ER Diagram

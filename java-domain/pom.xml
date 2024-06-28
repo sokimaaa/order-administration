@@ -9,5 +9,5 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>java-domain</artifactId>
+    <artifactId>order-administration-java-domain</artifactId>
 </project>

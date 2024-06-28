@@ -7,12 +7,14 @@ database "Write Model" as WM
 database "Read Model" as RM
 queue "Event Storage" as ESG
 
-ES -> OA: CancellationOrderCommand\n1: RequestId\n2: OrderId\n3: Reason
+ES -> OA: ShippingOrderModificationCommand\n1: RequestId\n2: OrderId\n3: Shipping Address
+OA -> ES: Accepted 204
 OA -> OA: transform to Java Domain
 OA -> RM: get order by OrderId
-OA -> OA: change status to "CANCELLED"
+OA -> OA: check order status in allowed for modification
+OA -> OA: change shipping address
 OA -> WM: update order
 OA -> OA: transform to Avro
-OA -> ESG: OrderCancelledEvent\n1: RequestId\n2: OrderId
+OA -> ESG: ShippingOrderModifiedEvent\n1: RequestId\n2: OrderId\n3: ShippingAddress
 
 @enduml

@@ -7,11 +7,11 @@ database "Write Model" as WM
 queue "Event Storage" as ESG
 
 ES -> OA: PlaceOrderCommand\n1: RequestId\n2: AccountId\n3: Set<ProductId>\n4: Amount\n5: Set<ProductProfile>\n6: Payment Method\n7: Shipping Address\n8: InitiatorId
+OA -> ES: Accepted 204
 OA -> OA: Transform to Java Domain
 
 OA -> OA: Generate OrderId based on AccountId, DayOfWeek, ProductIds
 
-OA -> OA: Check Order Duplication ("CREATED" or "DUPLICATED")
 OA -> WM: Create order with proper status
 
 OA -> OA: Transform to Avro Event

@@ -9,5 +9,13 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>infrastructure</artifactId>
+    <artifactId>order-administration-infrastructure</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sokima</groupId>
+            <artifactId>order-administration-usecase</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>

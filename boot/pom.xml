@@ -9,9 +9,15 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>boot</artifactId>
+    <artifactId>order-administration-boot</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.sokima</groupId>
+            <artifactId>order-administration-infrastructure</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>

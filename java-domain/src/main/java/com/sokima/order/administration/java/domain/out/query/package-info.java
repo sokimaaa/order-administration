@@ -1,0 +1,1 @@
+package com.sokima.order.administration.java.domain.out.query;

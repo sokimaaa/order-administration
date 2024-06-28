@@ -8,6 +8,7 @@ database "Read Model" as RM
 queue "Event Storage" as ESG
 
 ES -> OA: PaymentOrderModificationCommand\n1: RequestId\n2: OrderId\n3: Set<ProductIds>\n4: ShippingProfile
+OA -> ES: Accepted 204
 OA -> OA: transform to Java Domain
 OA -> RM: get order by OrderId
 OA -> OA: check order status in allowed for modification

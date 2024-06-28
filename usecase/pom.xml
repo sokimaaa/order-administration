@@ -9,5 +9,13 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>usecase</artifactId>
+    <artifactId>order-administration-usecase</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sokima</groupId>
+            <artifactId>order-administration-java-domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>
