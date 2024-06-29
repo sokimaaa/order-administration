@@ -10,7 +10,7 @@ ES -> OA: PlaceOrderCommand\n1: RequestId\n2: AccountId\n3: Set<ProductId>\n4: A
 OA -> ES: Accepted 204
 OA -> OA: Transform to Java Domain
 
-OA -> OA: Generate OrderId based on AccountId, DayOfWeek, ProductIds
+OA -> OA: Generate OrderId
 
 OA -> WM: Create order with proper status
 
