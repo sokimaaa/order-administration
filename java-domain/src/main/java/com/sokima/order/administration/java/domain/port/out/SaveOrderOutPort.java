@@ -1,7 +1,7 @@
-package com.sokima.order.administration.java.domain.port;
+package com.sokima.order.administration.java.domain.port.out;
 
 import com.sokima.order.administration.java.domain.Order;
 
-public interface SaveOrderPort {
+public interface SaveOrderOutPort {
     Order saveOrder(final Order order);
 }
