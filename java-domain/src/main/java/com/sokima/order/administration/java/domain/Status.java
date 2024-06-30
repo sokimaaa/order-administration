@@ -35,13 +35,13 @@ public enum Status {
     DONE(20),
     ;
 
-    private final int priority;
+    private final int step;
 
-    Status(final int priority) {
-        this.priority = priority;
+    Status(final int step) {
+        this.step = step;
     }
 
-    public boolean isAllowed(final Status that) {
-        return this.priority < that.priority;
+    public int step() {
+        return step;
     }
 }
