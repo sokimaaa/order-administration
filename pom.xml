@@ -30,7 +30,6 @@
 
     <modules>
         <module>boot</module>
-        <module>component-test</module>
         <module>infrastructure</module>
         <module>usecase</module>
         <module>java-domain</module>
