@@ -8,4 +8,14 @@ public record Order(
         DeliveryData deliveryData,
         PaymentData paymentData
 ) {
+    public Order updateStatus(final Status newStatus) {
+        return new Order(
+                this.orderId,
+                this.accountId,
+                newStatus,
+                this.products,
+                this.deliveryData,
+                this.paymentData
+        );
+    }
 }

@@ -5,5 +5,5 @@ import com.sokima.order.administration.java.domain.Order;
 import java.util.Optional;
 
 public interface FindOrderOutPort {
-    Optional<Order> findOrderById(final String orderId);
+    Optional<Order> findOrderById(final Integer orderId);
 }

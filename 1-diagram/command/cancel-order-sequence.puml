@@ -11,6 +11,7 @@ ES -> OA: CancellationOrderCommand\n1: RequestId\n2: OrderId\n3: Reason
 OA -> ES: Accepted 204
 OA -> OA: transform to Java Domain
 OA -> RM: get order by OrderId
+OA -> OA: check operation is allowed
 OA -> OA: change status to "CANCELLED"
 OA -> WM: update order
 OA -> OA: transform to Avro
