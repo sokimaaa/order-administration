@@ -1,7 +1,7 @@
 package com.sokima.order.administration.java.domain.business.operation;
 
 import com.sokima.order.administration.java.domain.Status;
-import org.checkerframework.checker.units.qual.A;
+import com.sokima.order.administration.java.domain.business.operation.in.OperationContext;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

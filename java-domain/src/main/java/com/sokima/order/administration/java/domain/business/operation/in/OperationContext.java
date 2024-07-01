@@ -1,4 +1,4 @@
-package com.sokima.order.administration.java.domain.business.operation;
+package com.sokima.order.administration.java.domain.business.operation.in;
 
 import com.sokima.order.administration.java.domain.Status;
 

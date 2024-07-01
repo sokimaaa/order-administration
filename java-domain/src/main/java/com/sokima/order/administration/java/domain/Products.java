@@ -4,7 +4,7 @@ import com.google.common.collect.Sets;
 
 import java.util.Set;
 
-public class Products {
+public final class Products {
 
     private final Set<String> productIds;
     private final Float amount;

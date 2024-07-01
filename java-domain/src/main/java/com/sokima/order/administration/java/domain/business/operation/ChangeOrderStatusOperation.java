@@ -1,6 +1,7 @@
 package com.sokima.order.administration.java.domain.business.operation;
 
 import com.sokima.order.administration.java.domain.Status;
+import com.sokima.order.administration.java.domain.business.operation.in.OperationContext;
 
 import java.util.Objects;
 import java.util.Set;

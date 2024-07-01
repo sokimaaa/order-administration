@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant "Order Administration" as OA
+database "Write Model" as WM
+database "Read Model" as RM
+queue "Event Storage" as ESG
+
+OA -> OA: Triggers scheduled job
+OA -> RM: Get orders where last update >30 days\nand status != Done, Cancelled, In Progress
+OA -> OA: Change status to Cancelled with reason "inactivity"
+OA -> WM: Batch update
+OA -> ESG: Batch publish OrderCancelledEvent
+
+@enduml
