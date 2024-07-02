@@ -9,8 +9,6 @@ import com.sokima.order.administration.usecase.command.out.event.OrderCreatedEve
 import com.sokima.order.administration.usecase.exception.UseCaseException;
 import com.sokima.order.administration.usecase.port.PlaceOrderInPort;
 
-import java.util.Objects;
-
 public final class PlaceOrderUseCase implements PlaceOrderInPort {
 
     private final SaveOrderOutPort saveOrderOutPort;
@@ -44,8 +42,7 @@ public final class PlaceOrderUseCase implements PlaceOrderInPort {
     }
 
     private PaymentData buildPaymentData(final PlaceOrderCommand placeOrderCommand) {
-        return Objects.nonNull(placeOrderCommand.paymentMethod()) ? PaymentData.from(placeOrderCommand.paymentMethod())
-                : null;
+        return PaymentData.from(placeOrderCommand.paymentMethod());
     }
 
     private DeliveryData buildDeliveryData(final PlaceOrderCommand placeOrderCommand) {

@@ -22,7 +22,11 @@ public final class PaymentData implements Validatable {
     }
 
     public static PaymentData from(final String paymentMethod) {
-        return new PaymentData(PaymentMethod.valueOf(paymentMethod));
+        try {
+            return new PaymentData(PaymentMethod.valueOf(paymentMethod));
+        } catch (IllegalArgumentException | NullPointerException e) {
+            return new PaymentData(null);
+        }
     }
 
     private enum PaymentMethod {
