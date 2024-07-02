@@ -1,4 +1,4 @@
-package com.sokima.order.administration.usecase.command.cancel;
+package com.sokima.order.administration.usecase.command.status;
 
 import com.sokima.order.administration.java.domain.Status;
 import com.sokima.order.administration.java.domain.business.operation.ChangeOrderStatusOperation;

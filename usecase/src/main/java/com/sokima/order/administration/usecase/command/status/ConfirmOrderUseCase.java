@@ -1,4 +1,4 @@
-package com.sokima.order.administration.usecase.command.confirm;
+package com.sokima.order.administration.usecase.command.status;
 
 import com.sokima.order.administration.java.domain.Order;
 import com.sokima.order.administration.java.domain.Status;
