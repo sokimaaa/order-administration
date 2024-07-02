@@ -77,6 +77,9 @@ class PlaceOrderUseCaseTest {
         Assertions.assertTrue(order.orderId().startsWith("ordr_"));
         Assertions.assertEquals("123", order.accountId());
         Assertions.assertEquals(Status.CREATED, order.status());
+        Assertions.assertNotNull(order.deliveryData());
+        Assertions.assertNotNull(order.paymentData());
+        Assertions.assertNotNull(order.products());
     }
 
     @Test

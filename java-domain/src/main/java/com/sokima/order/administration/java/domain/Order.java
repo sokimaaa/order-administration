@@ -23,6 +23,17 @@ public record Order(
         );
     }
 
+    public Order updateShippingAddress(final String newShippingAddress) {
+        return new Order(
+                this.orderId,
+                this.accountId,
+                this.status,
+                this.products,
+                deliveryData.withShippingAddress(newShippingAddress),
+                this.paymentData
+        );
+    }
+
     @Override
     public boolean validate() {
         return Objects.nonNull(orderId) &&

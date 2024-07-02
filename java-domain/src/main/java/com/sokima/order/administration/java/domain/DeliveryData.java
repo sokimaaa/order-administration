@@ -17,4 +17,8 @@ public record DeliveryData(
     public boolean validate() {
         return Objects.nonNull(shippingAddress);
     }
+
+    public DeliveryData withShippingAddress(final String newShippingAddress) {
+        return new DeliveryData(newShippingAddress, packageDimension);
+    }
 }
