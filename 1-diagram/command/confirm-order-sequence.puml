@@ -12,6 +12,8 @@ OA -> C: Accepted 204
 OA -> OA: transform to Java Domain
 
 OA -> WM: read Existing Order by OrderId
+OA -> OA: check order status is allowed
+OA -> OA: check order has\n1 shipping info\n2 payment info\n3 non empty products
 OA -> OA: change status to "CONFIRMED"
 OA -> RM: update order with proper status
 

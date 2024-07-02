@@ -10,6 +10,36 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProductsTest {
 
     @Test
+    void validate_validProducts_true() {
+        var products = Products.from(Set.of("1"), 1.0f);
+        Assertions.assertTrue(products.validate());
+    }
+
+    @Test
+    void validate_emptyProductSet_false() {
+        var products = Products.from(Set.of(), 1.0f);
+        Assertions.assertFalse(products.validate());
+    }
+
+    @Test
+    void validate_nullProductSet_false() {
+        var products = Products.from(null, 1.0f);
+        Assertions.assertFalse(products.validate());
+    }
+
+    @Test
+    void validate_invalidAmount_false() {
+        var products = Products.from(Set.of("1"), -1.0f);
+        Assertions.assertFalse(products.validate());
+    }
+
+    @Test
+    void validate_nullAmount_false() {
+        var products = Products.from(Set.of("1"), null);
+        Assertions.assertFalse(products.validate());
+    }
+
+    @Test
     void delta_twoSameProducts_emptyProducts() {
         var firstProduct = Products.from(Set.of("1", "2", "3"), 1.0f);
         var secondProduct = DeltaProducts.from(Set.of("2", "1", "3"), 1.0f);
