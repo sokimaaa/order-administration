@@ -25,20 +25,20 @@ class OrderTest {
         Mockito.when(deliveryData.validate()).thenReturn(true);
         Mockito.when(paymentData.validate()).thenReturn(true);
 
-        var order = new Order(123, "123", Status.APPROVED, products, deliveryData, paymentData);
+        var order = new Order("123", "123", Status.APPROVED, products, deliveryData, paymentData);
         Assertions.assertTrue(order.validate());
     }
 
     @Test
     void validate_invalidProducts_false() {
         Mockito.when(products.validate()).thenReturn(false);
-        var order = new Order(123, "123", Status.APPROVED, products, deliveryData, paymentData);
+        var order = new Order("123", "123", Status.APPROVED, products, deliveryData, paymentData);
         Assertions.assertFalse(order.validate());
     }
 
     @Test
     void validate_nullProducts_false() {
-        var order = new Order(123, "123", Status.APPROVED, null, deliveryData, paymentData);
+        var order = new Order("123", "123", Status.APPROVED, null, deliveryData, paymentData);
         Assertions.assertFalse(order.validate());
     }
 
@@ -46,14 +46,14 @@ class OrderTest {
     void validate_invalidDeliveryData_false() {
         Mockito.when(products.validate()).thenReturn(true);
         Mockito.when(deliveryData.validate()).thenReturn(false);
-        var order = new Order(123, "123", Status.APPROVED, products, deliveryData, paymentData);
+        var order = new Order("123", "123", Status.APPROVED, products, deliveryData, paymentData);
         Assertions.assertFalse(order.validate());
     }
 
     @Test
     void validate_nullDeliveryData_false() {
         Mockito.when(products.validate()).thenReturn(true);
-        var order = new Order(123, "123", Status.APPROVED, products, null, paymentData);
+        var order = new Order("123", "123", Status.APPROVED, products, null, paymentData);
         Assertions.assertFalse(order.validate());
     }
 
@@ -63,7 +63,7 @@ class OrderTest {
         Mockito.when(deliveryData.validate()).thenReturn(true);
         Mockito.when(paymentData.validate()).thenReturn(false);
 
-        var order = new Order(123, "123", Status.APPROVED, products, deliveryData, paymentData);
+        var order = new Order("123", "123", Status.APPROVED, products, deliveryData, paymentData);
         Assertions.assertFalse(order.validate());
     }
 
@@ -72,13 +72,13 @@ class OrderTest {
         Mockito.when(products.validate()).thenReturn(true);
         Mockito.when(deliveryData.validate()).thenReturn(true);
 
-        var order = new Order(123, "123", Status.APPROVED, products, deliveryData, null);
+        var order = new Order("123", "123", Status.APPROVED, products, deliveryData, null);
         Assertions.assertFalse(order.validate());
     }
 
     @Test
     void validate_invalidOrderStatus_false() {
-        var order = new Order(123, "123", null, products, deliveryData, paymentData);
+        var order = new Order("123", "123", null, products, deliveryData, paymentData);
         Assertions.assertFalse(order.validate());
     }
 
@@ -86,7 +86,7 @@ class OrderTest {
     @EmptySource
     @NullSource
     void validate_invalidAccountId_false(final String accountId) {
-        var order = new Order(123, accountId, Status.APPROVED, products, deliveryData, paymentData);
+        var order = new Order("123", accountId, Status.APPROVED, products, deliveryData, paymentData);
         Assertions.assertFalse(order.validate());
     }
 

@@ -5,7 +5,7 @@ import com.sokima.order.administration.java.domain.business.validate.Validatable
 import java.util.Objects;
 
 public record Order(
-        Integer orderId,
+        String orderId,
         String accountId,
         Status status,
         Products products,

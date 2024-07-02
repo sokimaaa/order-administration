@@ -44,38 +44,38 @@ class CancelOrderUseCaseTest {
     @Test
     void cancelOrder_orderExists_publishedEvent() {
         var order = new Order(
-                123, null, Status.APPROVED, null, null, null
+                "123", null, Status.APPROVED, null, null, null
         );
 
-        Mockito.when(findOrderOutPort.findOrderById(123)).thenReturn(Optional.of(order));
+        Mockito.when(findOrderOutPort.findOrderById("123")).thenReturn(Optional.of(order));
         Mockito.when(updateOrderOutPort.updateOrder(any(Order.class))).thenAnswer(a -> a.getArgument(0));
         Mockito.when(changeOrderStatusOperation.isAllowed(any(OperationContext.class))).thenReturn(true);
 
-        cancelOrderUseCase.cancelOrder(new CancelOrderCommand(123, "test"));
+        cancelOrderUseCase.cancelOrder(new CancelOrderCommand("123", "test"));
 
         Mockito.verify(publishSendableOutPort, Mockito.times(1)).publish(any(OrderCancelledEvent.class));
-        Mockito.verify(findOrderOutPort, Mockito.times(1)).findOrderById(123);
+        Mockito.verify(findOrderOutPort, Mockito.times(1)).findOrderById("123");
         Mockito.verify(updateOrderOutPort, Mockito.times(1)).updateOrder(any(Order.class));
     }
 
     @Test
     void cancelOrder_orderDoesNotExist_useCaseException() {
-        Mockito.when(findOrderOutPort.findOrderById(123)).thenReturn(Optional.empty());
+        Mockito.when(findOrderOutPort.findOrderById("123")).thenReturn(Optional.empty());
 
-        Assertions.assertThrows(UseCaseException.class, () -> cancelOrderUseCase.cancelOrder(new CancelOrderCommand(123, "test")));
+        Assertions.assertThrows(UseCaseException.class, () -> cancelOrderUseCase.cancelOrder(new CancelOrderCommand("123", "test")));
     }
 
     @Test
     void cancelOrder_operationNotAllowed_useCaseException() {
         var order = new Order(
-                123, null, Status.CANCELLED, null, null, null
+                "123", null, Status.CANCELLED, null, null, null
         );
 
-        Mockito.when(findOrderOutPort.findOrderById(123)).thenReturn(Optional.of(order));
+        Mockito.when(findOrderOutPort.findOrderById("123")).thenReturn(Optional.of(order));
         Mockito.when(changeOrderStatusOperation.isAllowed(any(OperationContext.class))).thenReturn(false);
 
-        Assertions.assertThrows(UseCaseException.class, () -> cancelOrderUseCase.cancelOrder(new CancelOrderCommand(123, "test")));
+        Assertions.assertThrows(UseCaseException.class, () -> cancelOrderUseCase.cancelOrder(new CancelOrderCommand("123", "test")));
 
-        Mockito.verify(findOrderOutPort, Mockito.times(1)).findOrderById(123);
+        Mockito.verify(findOrderOutPort, Mockito.times(1)).findOrderById("123");
     }
 }
