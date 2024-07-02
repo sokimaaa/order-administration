@@ -1,4 +1,4 @@
-package com.sokima.order.administration.usecase.flow.confirm;
+package com.sokima.order.administration.usecase.command.confirm;
 
 import com.sokima.order.administration.java.domain.Order;
 import com.sokima.order.administration.java.domain.Status;
@@ -7,9 +7,9 @@ import com.sokima.order.administration.java.domain.business.operation.in.Operati
 import com.sokima.order.administration.java.domain.port.out.FindOrderOutPort;
 import com.sokima.order.administration.java.domain.port.out.UpdateOrderOutPort;
 import com.sokima.order.administration.java.domain.port.out.event.PublishSendableOutPort;
-import com.sokima.order.administration.usecase.flow.exception.UseCaseException;
-import com.sokima.order.administration.usecase.in.command.ConfirmOrderCommand;
-import com.sokima.order.administration.usecase.out.event.OrderConfirmedEvent;
+import com.sokima.order.administration.usecase.exception.UseCaseException;
+import com.sokima.order.administration.usecase.command.in.command.ConfirmOrderCommand;
+import com.sokima.order.administration.usecase.command.out.event.OrderConfirmedEvent;
 import com.sokima.order.administration.usecase.port.ConfirmOrderInPort;
 
 public final class ConfirmOrderUseCase implements ConfirmOrderInPort {

@@ -1,4 +1,4 @@
-package com.sokima.order.administration.usecase.flow.confirm;
+package com.sokima.order.administration.usecase.command.confirm;
 
 import com.sokima.order.administration.java.domain.*;
 import com.sokima.order.administration.java.domain.business.operation.ChangeOrderStatusOperation;
@@ -6,12 +6,9 @@ import com.sokima.order.administration.java.domain.business.operation.in.Operati
 import com.sokima.order.administration.java.domain.port.out.FindOrderOutPort;
 import com.sokima.order.administration.java.domain.port.out.UpdateOrderOutPort;
 import com.sokima.order.administration.java.domain.port.out.event.PublishSendableOutPort;
-import com.sokima.order.administration.usecase.flow.cancel.CancelOrderUseCase;
-import com.sokima.order.administration.usecase.flow.exception.UseCaseException;
-import com.sokima.order.administration.usecase.in.command.CancelOrderCommand;
-import com.sokima.order.administration.usecase.in.command.ConfirmOrderCommand;
-import com.sokima.order.administration.usecase.out.event.OrderCancelledEvent;
-import com.sokima.order.administration.usecase.out.event.OrderConfirmedEvent;
+import com.sokima.order.administration.usecase.exception.UseCaseException;
+import com.sokima.order.administration.usecase.command.in.command.ConfirmOrderCommand;
+import com.sokima.order.administration.usecase.command.out.event.OrderConfirmedEvent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,7 +20,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Optional;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 
 @ExtendWith(MockitoExtension.class)

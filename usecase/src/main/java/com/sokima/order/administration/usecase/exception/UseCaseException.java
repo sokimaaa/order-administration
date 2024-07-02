@@ -1,4 +1,4 @@
-package com.sokima.order.administration.usecase.flow.exception;
+package com.sokima.order.administration.usecase.exception;
 
 public class UseCaseException extends RuntimeException {
 

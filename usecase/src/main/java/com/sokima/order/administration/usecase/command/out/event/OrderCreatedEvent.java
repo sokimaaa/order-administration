@@ -1,12 +1,12 @@
-package com.sokima.order.administration.usecase.out.event;
+package com.sokima.order.administration.usecase.command.out.event;
 
 import com.sokima.order.administration.java.domain.port.out.event.Sendable;
 
-public record OrderCancelledEvent(
+public record OrderCreatedEvent(
         Integer orderId
 ) implements Sendable {
     @Override
     public String getEventName() {
-        return "order-cancelled";
+        return "order-created";
     }
 }
