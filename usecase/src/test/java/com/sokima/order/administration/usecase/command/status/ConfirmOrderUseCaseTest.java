@@ -1,4 +1,4 @@
-package com.sokima.order.administration.usecase.command.confirm;
+package com.sokima.order.administration.usecase.command.status;
 
 import com.sokima.order.administration.java.domain.*;
 import com.sokima.order.administration.java.domain.business.operation.ChangeOrderStatusOperation;
@@ -6,7 +6,6 @@ import com.sokima.order.administration.java.domain.business.operation.in.Operati
 import com.sokima.order.administration.java.domain.port.out.FindOrderOutPort;
 import com.sokima.order.administration.java.domain.port.out.UpdateOrderOutPort;
 import com.sokima.order.administration.java.domain.port.out.event.PublishSendableOutPort;
-import com.sokima.order.administration.usecase.command.status.ConfirmOrderUseCase;
 import com.sokima.order.administration.usecase.exception.UseCaseException;
 import com.sokima.order.administration.usecase.command.in.command.ConfirmOrderCommand;
 import com.sokima.order.administration.usecase.command.out.event.OrderConfirmedEvent;

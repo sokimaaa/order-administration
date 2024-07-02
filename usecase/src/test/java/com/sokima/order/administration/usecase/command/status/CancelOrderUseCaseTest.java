@@ -1,4 +1,4 @@
-package com.sokima.order.administration.usecase.command.cancel;
+package com.sokima.order.administration.usecase.command.status;
 
 import com.sokima.order.administration.java.domain.Order;
 import com.sokima.order.administration.java.domain.Status;
@@ -7,7 +7,6 @@ import com.sokima.order.administration.java.domain.business.operation.in.Operati
 import com.sokima.order.administration.java.domain.port.out.FindOrderOutPort;
 import com.sokima.order.administration.java.domain.port.out.UpdateOrderOutPort;
 import com.sokima.order.administration.java.domain.port.out.event.PublishSendableOutPort;
-import com.sokima.order.administration.usecase.command.status.CancelOrderUseCase;
 import com.sokima.order.administration.usecase.exception.UseCaseException;
 import com.sokima.order.administration.usecase.command.in.command.CancelOrderCommand;
 import com.sokima.order.administration.usecase.command.out.event.OrderCancelledEvent;

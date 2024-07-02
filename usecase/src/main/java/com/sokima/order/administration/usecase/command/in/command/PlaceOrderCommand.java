@@ -10,4 +10,7 @@ public record PlaceOrderCommand(
         Float amount,
         String paymentMethod
 ) {
+    public PlaceOrderCommand(final String accountId) {
+        this(accountId, Set.of(), null, null, null, null);
+    }
 }
