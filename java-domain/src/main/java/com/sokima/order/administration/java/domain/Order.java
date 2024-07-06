@@ -12,14 +12,26 @@ public record Order(
         DeliveryData deliveryData,
         PaymentData paymentData
 ) implements Validatable {
-    public Order updatePaymentData(final PaymentData paymentData) {
+    public Order applyDeltaProducts(final DeltaProducts deltaProducts) {
+        final var newProducts = this.products.delta(deltaProducts);
+        return new Order(
+                this.orderId,
+                this.accountId,
+                this.status,
+                newProducts,
+                this.deliveryData,
+                this.paymentData
+        );
+    }
+
+    public Order updatePaymentData(final PaymentData newPaymentData) {
         return new Order(
                 this.orderId,
                 this.accountId,
                 this.status,
                 this.products,
                 this.deliveryData,
-                paymentData
+                newPaymentData
         );
     }
 

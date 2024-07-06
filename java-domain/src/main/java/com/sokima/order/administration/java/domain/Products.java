@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 import com.sokima.order.administration.java.domain.business.validate.Validatable;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public final class Products implements Validatable {
@@ -12,8 +13,8 @@ public final class Products implements Validatable {
     private final Float amount;
 
     private Products(final Set<String> productIds, final Float amount) {
-        this.productIds = productIds;
-        this.amount = amount;
+        this.productIds = Optional.ofNullable(productIds).orElse(Set.of());
+        this.amount = Optional.ofNullable(amount).orElse(0.f);
     }
 
     public static Products from(final Set<String> productIds, final Float amount) {
