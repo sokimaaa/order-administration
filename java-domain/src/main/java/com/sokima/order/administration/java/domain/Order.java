@@ -12,6 +12,17 @@ public record Order(
         DeliveryData deliveryData,
         PaymentData paymentData
 ) implements Validatable {
+    public Order updatePaymentData(final PaymentData paymentData) {
+        return new Order(
+                this.orderId,
+                this.accountId,
+                this.status,
+                this.products,
+                this.deliveryData,
+                paymentData
+        );
+    }
+
     public Order updateStatus(final Status newStatus) {
         return new Order(
                 this.orderId,
