@@ -24,7 +24,7 @@ public final class Products implements Validatable {
     @Override
     public boolean validate() {
         return Objects.nonNull(productIds) && !productIds.isEmpty()
-                && Objects.nonNull(amount) && amount >= 0.f;
+                && Objects.nonNull(amount) && amount > 0.f;
     }
 
     public Products delta(final DeltaProducts that) {
