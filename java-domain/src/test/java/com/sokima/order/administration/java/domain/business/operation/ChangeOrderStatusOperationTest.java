@@ -1,5 +1,6 @@
 package com.sokima.order.administration.java.domain.business.operation;
 
+import com.sokima.order.administration.java.domain.Order;
 import com.sokima.order.administration.java.domain.Status;
 import com.sokima.order.administration.java.domain.business.operation.in.OperationContext;
 import org.junit.jupiter.api.Assertions;
@@ -15,31 +16,56 @@ class ChangeOrderStatusOperationTest {
 
     @Test
     void isAllowed_targetStatusIsNull_false() {
-        var operationContext = new OperationContext(Status.CANCELLED);
+        var order = new Order(
+                null, null,
+                Status.CANCELLED,
+                null, null, null
+        );
+        var operationContext = new OperationContext(order);
         Assertions.assertFalse(changeOrderStatusOperation.isAllowed(operationContext));
     }
 
     @Test
     void isAllowed_targetStatusIsNull_true() {
-        var operationContext = new OperationContext(Status.APPROVED);
+        var order = new Order(
+                null, null,
+                Status.APPROVED,
+                null, null, null
+        );
+        var operationContext = new OperationContext(order);
         Assertions.assertTrue(changeOrderStatusOperation.isAllowed(operationContext));
     }
 
     @Test
     void isAllowed_targetStatusIsValid_true() {
-        var operationContext = new OperationContext(Status.APPROVED, Status.IN_PROGRESS);
+        var order = new Order(
+                null, null,
+                Status.APPROVED,
+                null, null, null
+        );
+        var operationContext = new OperationContext(order, Status.IN_PROGRESS);
         Assertions.assertTrue(changeOrderStatusOperation.isAllowed(operationContext));
     }
 
     @Test
     void isAllowed_targetStatusIsValid_false() {
-        var operationContext = new OperationContext(Status.IN_PROGRESS, Status.APPROVED);
+        var order = new Order(
+                null, null,
+                Status.IN_PROGRESS,
+                null, null, null
+        );
+        var operationContext = new OperationContext(order, Status.APPROVED);
         Assertions.assertFalse(changeOrderStatusOperation.isAllowed(operationContext));
     }
 
     @Test
     void isAllowed_targetStatusIsValidAndChangeForbiddenStatus_false() {
-        var operationContext = new OperationContext(Status.CANCELLED, Status.DONE);
+        var order = new Order(
+                null, null,
+                Status.CANCELLED,
+                null, null, null
+        );
+        var operationContext = new OperationContext(order, Status.DONE);
         Assertions.assertFalse(changeOrderStatusOperation.isAllowed(operationContext));
     }
 }

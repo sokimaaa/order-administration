@@ -12,7 +12,7 @@ public final class ChangeOrderStatusOperation implements Operation {
 
     @Override
     public boolean isAllowed(final OperationContext operationContext) {
-        final var currentStatus = operationContext.currentStatus();
+        final var currentStatus = operationContext.currentOrder().status();
         final var targetStatus = operationContext.targetStatus();
         if (Objects.isNull(targetStatus)) {
             return !NOT_ALLOWED_STATUSES.contains(currentStatus);

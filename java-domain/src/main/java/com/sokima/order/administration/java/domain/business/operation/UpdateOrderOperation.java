@@ -11,6 +11,6 @@ public final class UpdateOrderOperation implements Operation {
 
     @Override
     public boolean isAllowed(final OperationContext operationContext) {
-        return ALLOWED_STATUSES.contains(operationContext.currentStatus());
+        return ALLOWED_STATUSES.contains(operationContext.currentOrder().status());
     }
 }

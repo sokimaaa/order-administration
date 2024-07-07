@@ -31,7 +31,7 @@ public final class ConfirmOrderUseCase implements ConfirmOrderInPort {
         findOrderOutPort.findOrderById(confirmOrderCommand.orderId())
                 .filter(Order::validate)
                 .filter(order -> changeOrderStatusOperation.isAllowed(
-                        new OperationContext(order.status(), Status.APPROVED)
+                        new OperationContext(order, Status.APPROVED)
                 ))
                 .map(order -> order.updateStatus(Status.APPROVED))
                 .map(updateOrderOutPort::updateOrder)

@@ -28,7 +28,7 @@ public final class ModifyPaymentMethodUseCase implements ModifyPaymentMethodInPo
     @Override
     public void modifyPaymentMethod(final ChangePaymentMethodCommand changePaymentMethodCommand) {
         findOrderOutPort.findOrderById(changePaymentMethodCommand.orderId())
-                .filter(order -> updateOrderOperation.isAllowed(new OperationContext(order.status())))
+                .filter(order -> updateOrderOperation.isAllowed(new OperationContext(order)))
                 .map(order -> order.updatePaymentData(PaymentData.from(changePaymentMethodCommand.paymentMethod())))
                 .map(updateOrderOutPort::updateOrder)
                 .map(order -> new OrderInfoUpdatedEvent(order.orderId()))

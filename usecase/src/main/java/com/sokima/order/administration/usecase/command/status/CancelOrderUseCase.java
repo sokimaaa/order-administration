@@ -29,7 +29,7 @@ public final class CancelOrderUseCase implements CancelOrderInPort {
     public void cancelOrder(final CancelOrderCommand cancelOrderCommand) {
         findOrderOutPort.findOrderById(cancelOrderCommand.orderId())
                 .filter(order -> changeOrderStatusOperation.isAllowed(
-                        new OperationContext(order.status(), Status.CANCELLED)
+                        new OperationContext(order, Status.CANCELLED)
                 ))
                 .map(order -> order.updateStatus(Status.CANCELLED))
                 .map(updateOrderOutPort::updateOrder)

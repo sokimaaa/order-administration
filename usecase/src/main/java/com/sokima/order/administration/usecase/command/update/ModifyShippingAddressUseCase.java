@@ -27,7 +27,7 @@ public final class ModifyShippingAddressUseCase implements ModifyShippingInPort 
     @Override
     public void modifyShipping(final ReplaceShippingAddressCommand shippingAddressCommand) {
         findOrderOutPort.findOrderById(shippingAddressCommand.orderId())
-                .filter(order -> updateOrderOperation.isAllowed(new OperationContext(order.status())))
+                .filter(order -> updateOrderOperation.isAllowed(new OperationContext(order)))
                 .map(order -> order.updateShippingAddress(shippingAddressCommand.shippingAddress()))
                 .map(updateOrderOutPort::updateOrder)
                 .map(order -> new OrderInfoUpdatedEvent(order.orderId()))

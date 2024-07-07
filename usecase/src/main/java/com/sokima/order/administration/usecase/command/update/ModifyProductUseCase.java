@@ -29,7 +29,7 @@ public final class ModifyProductUseCase implements ModifyProductInPort {
     public void modifyProduct(final UpdateProductCommand updateProductCommand) {
         final var deltaProducts = DeltaProducts.from(updateProductCommand.deltaProductIds(), updateProductCommand.deltaAmount());
         findOrderOutPort.findOrderById(updateProductCommand.orderId())
-                .filter(order -> updateOrderOperation.isAllowed(new OperationContext(order.status())))
+                .filter(order -> updateOrderOperation.isAllowed(new OperationContext(order)))
                 .map(order -> order.applyDeltaProducts(deltaProducts))
                 .map(updateOrderOutPort::updateOrder)
                 .map(order -> new OrderInfoUpdatedEvent(order.orderId()))
