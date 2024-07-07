@@ -1,4 +1,4 @@
-package com.sokima.order.administration.usecase.command.in.command;
+package com.sokima.order.administration.usecase.command.in;
 
 public record CancelOrderCommand(
         String orderId,

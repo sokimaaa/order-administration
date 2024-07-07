@@ -1,4 +1,4 @@
-package com.sokima.order.administration.usecase.command.in.command;
+package com.sokima.order.administration.usecase.command.in;
 
 import java.util.Set;
 

@@ -8,8 +8,8 @@ import com.sokima.order.administration.java.domain.business.operation.in.Operati
 import com.sokima.order.administration.java.domain.port.out.FindOrderOutPort;
 import com.sokima.order.administration.java.domain.port.out.UpdateOrderOutPort;
 import com.sokima.order.administration.java.domain.port.out.event.PublishSendableOutPort;
-import com.sokima.order.administration.usecase.command.in.command.ChangePaymentMethodCommand;
-import com.sokima.order.administration.usecase.command.out.event.OrderInfoUpdatedEvent;
+import com.sokima.order.administration.usecase.command.in.ChangePaymentMethodCommand;
+import com.sokima.order.administration.usecase.command.out.OrderInfoUpdatedEvent;
 import com.sokima.order.administration.usecase.exception.UseCaseException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -19,7 +19,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 
 @ExtendWith(MockitoExtension.class)

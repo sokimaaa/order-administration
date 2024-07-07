@@ -8,8 +8,8 @@ import com.sokima.order.administration.java.domain.port.out.FindOrderOutPort;
 import com.sokima.order.administration.java.domain.port.out.UpdateOrderOutPort;
 import com.sokima.order.administration.java.domain.port.out.event.PublishSendableOutPort;
 import com.sokima.order.administration.usecase.exception.UseCaseException;
-import com.sokima.order.administration.usecase.command.in.command.ConfirmOrderCommand;
-import com.sokima.order.administration.usecase.command.out.event.OrderConfirmedEvent;
+import com.sokima.order.administration.usecase.command.in.ConfirmOrderCommand;
+import com.sokima.order.administration.usecase.command.out.OrderConfirmedEvent;
 import com.sokima.order.administration.usecase.port.ConfirmOrderInPort;
 
 public final class ConfirmOrderUseCase implements ConfirmOrderInPort {

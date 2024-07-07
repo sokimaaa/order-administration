@@ -1,1 +1,0 @@
-package com.sokima.order.administration.usecase.command.in.event;
