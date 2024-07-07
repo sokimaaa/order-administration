@@ -1,0 +1,17 @@
+{
+  "namespace": "com.sokima.order.administration.avro.domain",
+  "type": "record",
+  "name": "TrackingQuery",
+  "doc": "Tracking status of the order.",
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "string"
+    },
+    {
+      "name": "account_id",
+      "type": "string",
+      "doc": "To prove eligibility of tracking."
+    }
+  ]
+}
