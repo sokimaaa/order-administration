@@ -1,0 +1,12 @@
+{
+  "namespace": "com.sokima.order.administration.avro.domain",
+  "type": "record",
+  "name": "HistoryQuery",
+  "doc": "Shows entire orders history in shorted format.",
+  "fields": [
+    {
+      "name": "account_id",
+      "type": "string"
+    }
+  ]
+}
