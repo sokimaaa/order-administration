@@ -2,6 +2,7 @@ package com.sokima.order.administration.java.domain;
 
 import com.sokima.order.administration.java.domain.business.validate.Validatable;
 
+import java.time.Instant;
 import java.util.Objects;
 
 public record Order(
@@ -10,8 +11,13 @@ public record Order(
         Status status,
         Products products,
         DeliveryData deliveryData,
-        PaymentData paymentData
+        PaymentData paymentData,
+        Instant createdAt
 ) implements Validatable {
+    public Order(final String orderId, final String accountId, final Status status, final Products products, final DeliveryData deliveryData, final PaymentData paymentData) {
+        this(orderId, accountId, status, products, deliveryData, paymentData, Instant.now());
+    }
+
     public Order applyDeltaProducts(final DeltaProducts deltaProducts) {
         final var newProducts = this.products.delta(deltaProducts);
         return new Order(
@@ -20,7 +26,8 @@ public record Order(
                 this.status,
                 newProducts,
                 this.deliveryData,
-                this.paymentData
+                this.paymentData,
+                this.createdAt
         );
     }
 
@@ -31,7 +38,8 @@ public record Order(
                 this.status,
                 this.products,
                 this.deliveryData,
-                newPaymentData
+                newPaymentData,
+                this.createdAt
         );
     }
 
@@ -42,7 +50,8 @@ public record Order(
                 newStatus,
                 this.products,
                 this.deliveryData,
-                this.paymentData
+                this.paymentData,
+                this.createdAt
         );
     }
 
@@ -53,7 +62,8 @@ public record Order(
                 this.status,
                 this.products,
                 deliveryData.withShippingAddress(newShippingAddress),
-                this.paymentData
+                this.paymentData,
+                this.createdAt
         );
     }
 
