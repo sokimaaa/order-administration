@@ -45,3 +45,12 @@ Event Driven
 ## ER Diagram
 
 ## Build & Run
+Startup postgres locally:
+```
+docker run --name postgres -d --rm \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -e POSTGRES_DB=orders \
+  -p 5432:5432 \
+  postgres:14.1
+```
